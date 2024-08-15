@@ -38,7 +38,7 @@ body {
   background-image: linear-gradient(-180deg, #ff7e31, #e62c03);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #000000;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -67,12 +67,26 @@ body {
   margin-bottom: 20px;
 }
 
+/* Male button gradient */
 .male-button {
-  background-image: linear-gradient(-180deg, #4a90e2, #007aff);
+  background-image: linear-gradient(
+    -180deg,
+    #ec5c3c,
+    #fc772d
+  ); /* Red to Orange gradient */
 }
 
+/* Female button gradient */
 .female-button {
-  background-image: linear-gradient(-180deg, #e91e63, #c2185b);
+  background-image: linear-gradient(
+    -180deg,
+    #845d9c,
+    #cb3fa2
+  ); /* Purple to Pink gradient */
+}
+
+.female-button:hover {
+  background-color: rgba(0, 0, 0, 0.3); /* Darker backdrop on hover */
 }
 
 .btn-start i {
