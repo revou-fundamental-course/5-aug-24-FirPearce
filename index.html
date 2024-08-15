@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/main.css" />
+  </head>
+  <body>
+    <!-- navbar section -->
+    <!-- endNavbar section -->
+    <!-- header section -->
+    <section>
+      <div
+        class="container"
+        id="landing"
+        style="margin-top: 10%; margin-bottom: 15%">
+        <div class="tagline">
+          <img src="/public/image/bmi.png" alt="calculator" width="100%" />
+        </div>
+        <div class="" style="display: grid">
+          <div class="item1">
+            <h1>BMI Hub</h1>
+            <p class="description">
+              The easiest way to check your Body Mass Index online. Just enter
+              your weight and height to instantly see where you stand on the BMI
+              scale. Whether you're monitoring your health or starting a fitness
+              journey, our tool provides quick, accurate results to help you
+              stay on track. Start now and take charge of your health!
+            </p>
+          </div>
+          <div class="item2">
+            <button class="btn-start" role="button">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- header end section -->
+
+    <!-- calculator section -->
+    <section id="bmi-calculation">
+      <div class="container">
+        <!-- buatkan form calculation dengan input slider -->
+        <div class="calculation-slider">
+          <h1>BMI Calculator</h1>
+          <h4>Gender</h4>
+          <!-- image -->
+          <div>
+            <img
+              class="gender-image"
+              src=""
+              alt="gender"
+              id="gender-image"
+              hidden />
+          </div>
+          <!-- input gender select -->
+          <div>
+            <input type="radio" id="male" name="gender" value="male" hidden />
+            <label for="male">
+              <button type="button" onclick="selectGender('male')">Male</button>
+            </label>
+
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              hidden />
+            <label for="female">
+              <button type="button" onclick="selectGender('female')">
+                Female
+              </button>
+            </label>
+          </div>
+          <h2>Weight</h2>
+          <input
+            type="range"
+            name="weight"
+            id="weight-slider"
+            min="0"
+            max="150"
+            value="0"
+            oninput="updateWeightInput(this.value)" />
+          <!-- input with label-->
+          <input
+            type="number"
+            id="weight-input"
+            min="0"
+            max="150"
+            value="0"
+            oninput="updateWeightSlider(this.value)" />
+          KG
+
+          <h2>Height</h2>
+          <input
+            type="range"
+            name="height"
+            id="height-slider"
+            min="0"
+            max="250"
+            value="0"
+            oninput="updateHeightInput(this.value)" />
+          <!-- input with label -->
+          <input
+            type="number"
+            id="height-input"
+            min="0"
+            max="250"
+            value="0"
+            oninput="updateHeightSlider(this.value)" />
+          CM
+          <label> <span id="convert-m">0</span> M </label>
+
+          <div class="slider-value" style="margin-top: 20px">
+            <button class="btn" id="calculate" onclick="validateInput()">
+              Calculate
+            </button>
+            <button class="btn" id="reset">Reset</button>
+          </div>
+        </div>
+        <!-- buatkan bagian untuk hasil bmi -->
+        <div class="bmi-result">
+          <h2>Your BMI</h2>
+          <p id="bmi-value">0</p>
+          <h2>Category</h2>
+          <p id="bmi-category">Normal</p>
+        </div>
+      </div>
+    </section>
+    <!-- calculator end section -->
+
+    <!-- footer section -->
+    <section></section>
+    <!-- footer end section -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
+    <script src="public/javascript/main.js"></script>
+  </body>
+</html>
