@@ -152,7 +152,9 @@
               onclick="validateInput()">
               Calculate
             </button>
-            <button class="btn-reset" id="reset">Reset</button>
+            <button class="btn-reset" id="reset" onclick="reset()">
+              Reset
+            </button>
           </div>
         </div>
         <!-- buatkan bagian untuk hasil bmi -->
@@ -163,19 +165,64 @@
           </div>
           <div class="result-right">
             <h2>Category</h2>
-            <p id="bmi-category">Not Calculated</p>
+            <p class="" id="bmi-category">Not Calculated</p>
           </div>
           <div class="button-container">
             <!-- add button detail -->
             <button
               class="btn-detail"
-              id="detail"
+              id="btn-detail"
               onclick="showDetail()"
               hidden>
               Detail
             </button>
           </div>
         </div>
+
+        <!-- detail container -->
+        <div
+          class="detail-container"
+          id="detail-container"
+          style="display: none">
+          <div class="detail-content">
+            <h2 id="title-detail">BMI Calculation Details</h2>
+            <h3 id="value-bmi"></h3>
+            <div id="bmi-details"></div>
+          </div>
+        </div>
+
+        <!-- <div class="detail-container" id="detail-container">
+          <div class="detail-content">
+            <h2 id="title-detail">What is BMI?</h2>
+            <p>
+              Body Mass Index (BMI) is a person's weight in kilograms divided by
+              the square of height in meters. A high BMI can be an indicator of
+              high body fatness. BMI can be used to screen for weight categories
+              that may lead to health problems but it is not diagnostic of the
+              body fatness or health of an individual.
+            </p>
+            <h2>What is the BMI scale?</h2>
+            <p>
+              The BMI scale is a general guideline to categorize a person's
+              weight status. The categories are as follows:
+            </p>
+            <ul>
+              <li>Underweight: BMI less than 18.5</li>
+              <li>Normal weight: BMI 18.5 - 24.9</li>
+              <li>Overweight: BMI 25 - 29.9</li>
+              <li>Obesity: BMI 30 or more</li>
+            </ul>
+            <h2>What are the limitations of BMI?</h2>
+            <p>
+              BMI is a screening tool, not a diagnostic tool. It does not
+              directly measure body fat, muscle mass, bone density, or body
+              water. It is possible for a person to have a high BMI and be
+              healthy or have a normal BMI and be unhealthy. The BMI scale
+              should be used as a general guideline and not as a definitive
+              measure of health.
+            </p>
+          </div>
+        </div> -->
       </div>
     </section>
     <!-- calculator end section -->
