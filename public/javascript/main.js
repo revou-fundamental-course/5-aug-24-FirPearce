@@ -29,7 +29,7 @@ function menuCLick(listItem) {
   // Dapatkan nilai href dari elemen <a>
   const href = link.getAttribute("href");
   // Gulir ke elemen tersebut
-  document.getElementById(href).scrollIntoView({ behavior: "smooth" });
+  document.querySelector(href).scrollIntoView({ behavior: "smooth" });
 }
 
 // function select gender

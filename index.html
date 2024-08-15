@@ -22,7 +22,7 @@
     <section id="navbar">
       <nav class="navbar">
         <div class="navbar-logo">
-          <a href="#home">BMI Hub</a>
+          <a href="#home">Firly Taufikurohman</a>
         </div>
         <ul class="navbar-menu">
           <li onclick="menuCLick(this)"><a href="#home">Home</a></li>
@@ -41,10 +41,7 @@
     <!-- home section -->
     <section id="home">
       <div class="container" id="landing">
-        <div class="tagline">
-          <img src="./public/image/bmi.png" alt="calculator" width="100%" />
-        </div>
-        <div class="">
+        <div class="home-left">
           <div class="item1">
             <h1>BMI Hub</h1>
             <p class="description">
@@ -60,6 +57,9 @@
               Get Started
             </button>
           </div>
+        </div>
+        <div class="tagline">
+          <img src="./public/image/bmi.png" alt="calculator" width="100%" />
         </div>
       </div>
     </section>
@@ -103,111 +103,116 @@
     <section id="bmi-calculation">
       <div class="container">
         <!-- buatkan form calculation dengan input slider -->
+        <h1>BMI Calculator</h1>
+        <hr />
         <div class="calculation-slider">
-          <h1>BMI Calculator</h1>
-          <!-- image -->
-          <div class="image-wrapper">
-            <img
-              class="gender-image"
-              src=""
-              alt="gender"
-              id="gender-image"
-              hidden />
-          </div>
-          <!-- input gender select -->
-          <div class="gender">
-            <input type="radio" id="male" name="gender" value="male" hidden />
-            <label for="male">
-              <button
-                type="button"
-                class="btn-start male-button"
-                onclick="selectGender('male')">
-                <i class="fas fa-mars"></i> Male
-              </button>
-            </label>
+          <div class="left-section">
+            <!-- image -->
+            <div class="image-wrapper">
+              <img
+                class="gender-image"
+                src=""
+                alt="gender"
+                id="gender-image"
+                hidden />
+            </div>
+            <!-- input gender select -->
+            <div class="gender">
+              <input type="radio" id="male" name="gender" value="male" hidden />
+              <label for="male">
+                <button
+                  type="button"
+                  class="btn-start male-button"
+                  onclick="selectGender('male')">
+                  <i class="fas fa-mars"></i> Male
+                </button>
+              </label>
 
-            <input
-              type="radio"
-              id="female"
-              name="gender"
-              value="female"
-              hidden />
-            <label for="female">
-              <button
-                type="button"
-                class="btn-start female-button"
-                onclick="selectGender('female')">
-                <i class="fas fa-venus"></i> Female
-              </button>
-            </label>
-          </div>
-
-          <div class="weight">
-            <h2>Weight</h2>
-            <div class="weight-controls">
               <input
-                class="weight-input"
-                type="number"
-                id="weight-input"
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                hidden />
+              <label for="female">
+                <button
+                  type="button"
+                  class="btn-start female-button"
+                  onclick="selectGender('female')">
+                  <i class="fas fa-venus"></i> Female
+                </button>
+              </label>
+            </div>
+          </div>
+
+          <div class="right-section">
+            <div class="weight">
+              <h2>Weight</h2>
+              <div class="weight-controls">
+                <input
+                  class="weight-input"
+                  type="number"
+                  id="weight-input"
+                  min="0"
+                  max="150"
+                  value="0"
+                  oninput="updateWeightSlider(this.value)" />
+                <span class="weight-unit">KG</span>
+              </div>
+              <input
+                class="slider"
+                type="range"
+                name="weight"
+                id="weight-slider"
                 min="0"
                 max="150"
                 value="0"
-                oninput="updateWeightSlider(this.value)" />
-              <span class="weight-unit">KG</span>
+                oninput="updateWeightInput(this.value)"
+                onmousemove="updateWeightInput(this.value)" />
             </div>
-            <input
-              class="slider"
-              type="range"
-              name="weight"
-              id="weight-slider"
-              min="0"
-              max="150"
-              value="0"
-              oninput="updateWeightInput(this.value)"
-              onmousemove="updateWeightInput(this.value)" />
-          </div>
 
-          <div class="height">
-            <h2>Height</h2>
-            <div class="height-controls">
+            <div class="height">
+              <h2>Height</h2>
+              <div class="height-controls">
+                <input
+                  class="height-input"
+                  type="number"
+                  id="height-input"
+                  min="0"
+                  max="250"
+                  value="0"
+                  oninput="updateHeightSlider(this.value)" />
+                <span class="height-unit">CM /</span>
+                <span class="convert-m" id="convert-m">0</span>
+                <span>M</span>
+              </div>
+
               <input
-                class="height-input"
-                type="number"
-                id="height-input"
+                class="slider"
+                type="range"
+                name="height"
+                id="height-slider"
                 min="0"
                 max="250"
                 value="0"
-                oninput="updateHeightSlider(this.value)" />
-              <span class="height-unit">CM /</span>
-              <span class="convert-m" id="convert-m">0</span>
-              <span>M</span>
+                oninput="updateHeightInput(this.value)"
+                onmousemove="updateWeightInput(this.value)" />
+              <!-- input with label -->
             </div>
-
-            <input
-              class="slider"
-              type="range"
-              name="height"
-              id="height-slider"
-              min="0"
-              max="250"
-              value="0"
-              oninput="updateHeightInput(this.value)"
-              onmousemove="updateWeightInput(this.value)" />
-            <!-- input with label -->
-          </div>
-
-          <div class="slider-value">
-            <button
-              class="btn-calculate"
-              id="calculate"
-              onclick="validateInput()">
-              Calculate
-            </button>
-            <button class="btn-reset" id="reset" onclick="reset()">
-              Reset
-            </button>
+            <div class="slider-value">
+              <button
+                class="btn-calculate"
+                id="calculate"
+                onclick="validateInput()">
+                Calculate
+              </button>
+              <button class="btn-reset" id="reset" onclick="reset()">
+                Reset
+              </button>
+            </div>
           </div>
         </div>
+
         <!-- buatkan bagian untuk hasil bmi -->
         <div class="bmi-result">
           <div class="result-left">

@@ -18,11 +18,13 @@ body {
 }
 
 /* setting container */
+
 .container {
-  width: 80%; /* Controls the width of the container */
+  width: 90%; /* Controls the width of the container */
   max-width: 1200px; /* Limits the width to prevent it from becoming too wide */
   margin: 0 auto; /* Centers the container */
   padding: 20px; /* Adds padding inside the container */
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
 /* setting text */
@@ -39,67 +41,120 @@ body {
 }
 
 /* navbar setting */
-#navbar {
-  background-color: #f1613c; /* Background color of the navbar */
-  padding: 10px 20px; /* Add padding for better spacing */
-  z-index: 1000; /* Ensure the navbar is above other content */
-  width: 100%; /* Ensure navbar takes full width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  position: fixed;
-}
-
 .navbar {
+  position: fixed; /* Make navbar fixed */
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px; /* Optional: Limit the width of the navbar content */
-  margin: 0 auto; /* Center the navbar content */
-  background-color: #f1613c; /* Match the background color */
-  width: 100%; /* Ensure the navbar content takes full width */
+  padding: 5px 350px; /* Adjust padding if needed */
+  background-color: #f1613c; /* Background color for the entire navbar */
+  color: #fff;
+  font-weight: bold;
+  z-index: 1000;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
+/* Ensure the navbar-logo and menu are properly styled */
 .navbar-logo a {
-  color: #fff;
   text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
 }
 
 .navbar-menu {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  max-height: 0; /* Initially hidden */
-  overflow: hidden; /* Hide overflow */
-  opacity: 0;
-}
-
-.navbar-menu.active {
-  max-height: 500px; /* Adjust based on content */
-  opacity: 1;
+  gap: 20px;
 }
 
 .navbar-menu li {
-  margin: 0 15px;
+  display: inline;
+  font-size: 16px;
+  margin-right: 20px;
 }
 
 .navbar-menu a {
-  color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  color: #fff;
 }
 
-.navbar-menu a:hover {
-  text-decoration: underline;
-}
-
+/* Hide the navbar toggle (burger icon) on desktop */
 .navbar-toggle {
   display: none;
-  cursor: pointer;
-  color: #fff;
-  font-size: 24px;
+}
+
+/* setup home */
+#landing {
+  display: flex; /* Use Flexbox for layout */
+  justify-content: space-between; /* Space out children */
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+  margin-top: 200px;
+}
+
+/* Tagline styles */
+.tagline {
+  flex: 1; /* Allow tagline to grow and shrink as needed */
+  display: flex; /* Use Flexbox for tagline content */
+  justify-content: flex-end; /* Align image to the right */
+}
+
+/* Ensure the image is responsive */
+.tagline img {
+  max-width: 90%;
+  height: auto;
+}
+
+/* Home-left styles */
+.home-left {
+  flex: 1; /* Allow home-left to grow and shrink as needed */
+  max-width: 30%; /* Adjust as needed */
+  text-align: left; /* Align text to the left */
+  font-weight: 600;
+}
+
+/* Styling for individual items */
+.home-left .item1 h1 {
+  font-size: 2em;
+  margin: 0 0 10px 0;
+}
+
+.home-left .item1 .description {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* description */
+#description {
+  background-color: #f09c88;
+  margin-top: 150px;
+}
+
+#bmi-calculation {
+  margin-top: 130px;
+}
+
+.calculation-slider {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Distribute space between items */
+}
+
+/* Style for the left section */
+.left-section {
+  flex: 1; /* Take up half of the space */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* Style for the right section */
+.right-section {
+  flex: 1; /* Take up half of the space */
+  display: flex;
+  flex-direction: column;
 }
 
 /* setting button start */
@@ -159,23 +214,18 @@ body {
   background-color: rgba(0, 0, 0, 0.3); /* Darker backdrop on hover */
 }
 
-.btn-start i {
+/* .btn-start i {
   margin-right: 8px;
-}
+} */
 
 .btn-start:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
 }
 
-.calculation-slider {
+/* .calculation-slider {
   display: flex;
   flex-direction: column;
-}
-
-.weight,
-.height {
-  margin-top: 20px;
-}
+} */
 
 .btn-calculate {
   background-color: #fc772d;
@@ -234,21 +284,228 @@ body {
 
 .slider-value {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .bmi-result {
   text-align: center;
   margin-top: 30px;
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
-.image-wrapper {
+.gender {
   display: flex;
-  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
+.gender-image {
+  height: 300px;
+}
+
+.weight-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.weight-controls {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.weight-controls span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+.height-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.height-controls {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.height-controls .height-unit {
+  position: absolute;
+  right: 65px;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+.height-controls .convert-m {
+  position: absolute;
+  right: 30px;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+.height-controls span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  cursor: pointer;
+}
+
+/* Style untuk container slider */
+.slider {
+  touch-action: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #f25419;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.bmi-result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.result-left,
+.result-right {
+  text-align: center;
+}
+
+.result-left {
+  margin-right: 10px;
+}
+
+.result-right {
+  margin-left: 10px; /* Jarak antara elemen kiri dan kanan */
+}
+
+.button-container {
+  grid-column: span 2; /* Mengatur tombol untuk mengambil dua kolom penuh */
+  display: flex;
+  justify-content: center; /* Menyelaraskan tombol di tengah secara horizontal */
+}
+
+.btn-detail {
+  background-color: #fc772d;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-detail:hover {
+  background-color: #e62c03;
+}
+
+.detail-container {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #fc772d;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* mobile */
 @media (max-width: 768px) {
   /* navbar setting */
+  .navbar {
+    background-color: #f1613c; /* Background color of the navbar */
+    padding: 10px 20px; /* Add padding for better spacing */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    width: 100%; /* Ensure navbar takes full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    position: fixed; /* Fixed position to keep the navbar in view */
+  }
+
+  .navbar-logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
   .navbar-menu {
     display: flex;
     flex-direction: column;
@@ -257,6 +514,17 @@ body {
     position: absolute;
     top: 50px; /* Adjust to match the height of the navbar */
     left: 0;
+  }
+
+  .navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide overflow */
+    opacity: 0;
   }
 
   .navbar-menu.active {
@@ -271,10 +539,22 @@ body {
 
   .navbar-toggle {
     display: block;
+    color: #fff;
+    font-size: 24px;
   }
 
   .container {
     width: 90%;
+  }
+
+  #landing {
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center;
+  }
+
+  .tagline,
+  .home-left {
+    max-width: 100%; /* Full width on mobile */
   }
 
   .item1 {
@@ -318,6 +598,16 @@ body {
 
   .gender-image {
     height: 300px;
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .weight,
+  .height {
+    margin-top: 20px;
   }
 
   .weight-input {
