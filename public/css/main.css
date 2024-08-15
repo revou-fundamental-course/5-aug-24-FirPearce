@@ -3,6 +3,13 @@ body {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%; /* Memastikan body setinggi viewport */
+  display: flex;
+  flex-direction: column;
+}
 
 /* setting container */
 .container {
@@ -12,7 +19,7 @@ body {
   padding: 20px; /* Adds padding inside the container */
 }
 
-/* setting buton start */
+/* setting button start */
 .btn-start {
   background-color: initial;
   background-image: linear-gradient(-180deg, #ff7e31, #e62c03);
@@ -39,16 +46,123 @@ body {
   z-index: 9;
   border: 0;
   transition: box-shadow 0.2s;
-  float: left;
+  margin-right: 10px;
+}
+
+/* Tambahkan margin bawah agar tidak terlalu mepet dengan slider */
+.gender-buttons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.male-button {
+  background-image: linear-gradient(
+    -180deg,
+    #4a90e2,
+    #007aff
+  ); /* Warna latar belakang untuk tombol pria */
+}
+
+.female-button {
+  background-image: linear-gradient(
+    -180deg,
+    #e91e63,
+    #c2185b
+  ); /* Warna latar belakang untuk tombol wanita */
+}
+
+.btn-start i {
+  margin-right: 8px; /* Jarak antara ikon dan teks */
 }
 
 .btn-start:hover {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
 }
 
+.calculation-slider {
+  display: flex;
+  flex-direction: column; /* Menyusun elemen secara vertikal */
+}
+
+.weight,
+.height {
+  margin-top: 20px;
+}
+
+.btn-calculate {
+  background-color: #fc772d; /* Warna latar belakang sesuai color palette */
+  background-image: linear-gradient(-180deg, #fc772d, #e62c03);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-right: 10px;
+}
+
+.btn-reset {
+  background-color: #ffffff; /* Latar belakang putih */
+  border: 2px solid #fc772d; /* Border dengan warna sesuai color palette */
+  border-radius: 6px;
+  color: #fc772d; /* Warna teks sesuai color palette */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  z-index: 9;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.slider-value {
+  margin-top: 20px; /* Menambahkan jarak atas dari elemen sebelumnya */
+}
+
+.bmi-result {
+  text-align: center; /* Menyelaraskan hasil BMI di tengah */
+  margin-top: 20px; /* Menambahkan jarak atas dari elemen sebelumnya */
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center; /* Menyelaraskan gambar di tengah */
+  margin-top: 20px;
+}
+
 @media (max-width: 768px) {
+
   .container {
-    width: 90%; /* Make the container take up 90% of the screen on smaller devices */
+    width: 90%; Make the container take up 90% of the screen on smaller devices
   }
 
   .item1 {
@@ -85,11 +199,179 @@ body {
     font-size: 2em;
   }
 
-  .gender-image {
-    height: 200px;
+  .gender {
+    display: flex;
   }
 
-  /* button start tidak terlalu panjang */
+  .gender-image {
+    height: 300px;
+  }
+
+  .weight-input{
+    width: 100%; /* Lebar input yang sesuai */
+    padding: 8px; /* Padding di dalam input */
+    border: 1px solid #ccc; /* Warna border */
+    border-radius: 4px; /* Sudut border membulat */
+    box-sizing: border-box; /* Sertakan padding dan border dalam total lebar dan tinggi */
+  }
+  
+
+  .weight-controls{
+    position: relative; /* Membuat posisi relatif */
+    margin-bottom: 20px; /* Jarak bawah dari elemen sebelumnya */
+  }
+
+  .weight-controls span{
+    position: absolute;
+    right: 10px; /* Jarak dari sisi kanan */
+    top: 50%; /* Posisi dari atas */
+    transform: translateY(-50%); /* Pusatkan vertikal */
+    color: #777; /* Warna teks */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
+  }
+
+  .height-input{
+    width: 100%; /* Lebar input yang sesuai */
+    padding: 8px; /* Padding di dalam input */
+    border: 1px solid #ccc; /* Warna border */
+    border-radius: 4px; /* Sudut border membulat */
+    box-sizing: border-box; /* Sertakan padding dan border dalam total lebar dan tinggi */
+  }
+
+  .height-controls{
+    position: relative; /* Membuat posisi relatif */
+    margin-bottom: 20px; /* Jarak bawah dari elemen sebelumnya */
+  }
+
+  .height-controls .height-unit{
+    position: absolute;
+    right: 65px; /* Jarak dari sisi kanan */
+    transform: translateY(-50%); /* Pusatkan vertikal */
+    color: #777; /* Warna teks */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
+  }
+
+  .height-controls .convert-m{
+    position: absolute;
+    right: 30px; /* Jarak dari sisi kanan */
+    transform: translateY(-50%); /* Pusatkan vertikal */
+    color: #777; /* Warna teks */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
+  }
+
+  .height-controls span{
+    position: absolute;
+    right: 10px; /* Jarak dari sisi kanan */
+    top: 50%; /* Posisi dari atas */
+    transform: translateY(-50%); /* Pusatkan vertikal */
+    color: #777; /* Warna teks */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
+  }
+
+  /* Style untuk container slider */
+  .slider {
+    touch-action: none; /* Hapus aksi sentuh default pada slider */
+    -webkit-appearance: none; /* Hapus gaya default pada webkit (Chrome, Safari) */
+    width: 100%; /* Lebar penuh dari elemen induk */
+    height: 8px; /* Tinggi track slider */
+    background: #ddd; /* Warna latar belakang track slider */
+    border-radius: 5px; /* Membuat sudut track slider membulat */
+    outline: none; /* Hapus outline default saat slider dipilih */
+    opacity: 0.7; /* Opasitas slider */
+    transition: opacity 0.15s ease-in-out; /* Transisi saat hover */
+  }
+
+  .slider:hover {
+    opacity: 1; /* Opasitas saat hover */
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Hapus gaya default pada webkit (Chrome, Safari) */
+    appearance: none; /* Hapus gaya default pada browser lain */
+    width: 20px; /* Lebar thumb slider */
+    height: 20px; /* Tinggi thumb slider */
+    background: #f25419; /* Warna thumb slider */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
+    border-radius: 50%; /* Membuat thumb slider membulat */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+  }
+
+  .bmi-result {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi area menjadi dua kolom dengan ukuran yang sama */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+    gap: 20px; /* Jarak antara kolom */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+  
+  .result-left,
+  .result-right {
+    text-align: center; /* Menyelaraskan teks di tengah */
+  }
+  
+  .result-left {
+    margin-right: 10px; /* Jarak antara elemen kiri dan kanan */
+  }
+  
+  .result-right {
+    margin-left: 10px; /* Jarak antara elemen kiri dan kanan */
+  }
+
+  .button-container {
+    grid-column: span 2; /* Mengatur tombol untuk mengambil dua kolom penuh */
+    display: flex;
+    justify-content: center; /* Menyelaraskan tombol di tengah secara horizontal */
+  }
+  
+  .btn-detail {
+    background-color: #fc772d; /* Warna latar belakang sesuai color palette */
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .btn-detail:hover {
+    background-color: #e62c03;
+  }
+  .footer {
+    margin-top: 50px; /* Jarak atas footer */
+    background-color: #333; /* Warna latar belakang footer */
+    color: #fff; /* Warna teks */
+    padding: 20px;
+    text-align: center; /* Teks berada di tengah */
+  }
+  
+  .footer-content {
+    max-width: 600px; /* Lebar maksimal untuk footer content */
+    margin: 0 auto; /* Pusatkan footer content */
+  }
+  
+  .footer-links {
+    margin-top: 10px; /* Jarak di atas link */
+  }
+  
+  .footer-links a {
+    color: #fc772d; /* Warna link sesuai color palette */
+    text-decoration: none; /* Hilangkan garis bawah link */
+    margin: 0 10px; /* Jarak horizontal antara link */
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+  }
+  
+
 }
 
 /* #landing {

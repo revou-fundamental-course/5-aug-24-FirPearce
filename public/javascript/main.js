@@ -38,6 +38,7 @@ function genderImage(gender) {
 function updateWeightInput(value) {
   document.getElementById("weight-input").value = value;
 }
+
 // function on input numer weight
 function updateWeightSlider(value) {
   value = Math.max(0, value);
