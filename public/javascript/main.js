@@ -6,6 +6,32 @@ const bmiFormula = (weight, height) => {
   return weight / Math.pow(height / 100, 2);
 };
 
+// getstarted href
+function getStarted() {
+  // go to section 2
+  document
+    .getElementById("bmi-calculation")
+    .scrollIntoView({ behavior: "smooth" });
+}
+
+// toggle navbar
+function toggleNavbar() {
+  const menu = document.querySelector(".navbar-menu");
+  menu.classList.toggle("active");
+}
+
+function menuCLick(listItem) {
+  const menu = document.querySelector(".navbar-menu");
+  menu.classList.remove("active");
+  // go to href in a tag child
+  const link = listItem.querySelector("a");
+
+  // Dapatkan nilai href dari elemen <a>
+  const href = link.getAttribute("href");
+  // Gulir ke elemen tersebut
+  document.getElementById(href).scrollIntoView({ behavior: "smooth" });
+}
+
 // function select gender
 function selectGender(gender) {
   document.getElementById(gender).checked = true;
@@ -79,7 +105,6 @@ function validateInput() {
   if (height == 0) {
     errors.push("Height");
   }
-  console.log(errors);
   if (errors.length > 0) {
     // sweet alert
     Swal.fire({
@@ -93,6 +118,7 @@ function validateInput() {
     document.getElementById("btn-detail").hidden = false;
     // hide detail bmi
     document.getElementById("detail-container").style.display = "none";
+    document.getElementById("detail-container").hidden = true;
   }
 }
 

@@ -19,17 +19,32 @@
   </head>
   <body>
     <!-- navbar section -->
+    <section id="navbar">
+      <nav class="navbar">
+        <div class="navbar-logo">
+          <a href="#home">BMI Hub</a>
+        </div>
+        <ul class="navbar-menu">
+          <li onclick="menuCLick(this)"><a href="#home">Home</a></li>
+          <li onclick="menuCLick(this)"><a href="#description">About</a></li>
+          <li onclick="menuCLick(this)">
+            <a href="#bmi-calculation">Calculate BMI</a>
+          </li>
+        </ul>
+        <div class="navbar-toggle" id="navbar-toggle" onclick="toggleNavbar()">
+          <span>&#9776;</span>
+          <!-- Hamburger icon -->
+        </div>
+      </nav>
+    </section>
     <!-- endNavbar section -->
-    <!-- header section -->
-    <section>
-      <div
-        class="container"
-        id="landing"
-        style="margin-top: 10%; margin-bottom: 15%">
+    <!-- home section -->
+    <section id="home">
+      <div class="container" id="landing">
         <div class="tagline">
           <img src="./public/image/bmi.png" alt="calculator" width="100%" />
         </div>
-        <div class="" style="display: grid">
+        <div class="">
           <div class="item1">
             <h1>BMI Hub</h1>
             <p class="description">
@@ -41,12 +56,48 @@
             </p>
           </div>
           <div class="item2">
-            <button class="btn-start" role="button">Get Started</button>
+            <button class="btn-start" role="button" onclick="getStarted()">
+              Get Started
+            </button>
           </div>
         </div>
       </div>
     </section>
-    <!-- header end section -->
+    <!-- home end section -->
+
+    <!-- bmi description section -->
+    <section id="description">
+      <div class="container">
+        <h2>What is BMI?</h2>
+        <p>
+          Body Mass Index (BMI) is a person's weight in kilograms divided by the
+          square of height in meters. A high BMI can be an indicator of high
+          body fatness. BMI can be used to screen for weight categories that may
+          lead to health problems but it is not diagnostic of the body fatness
+          or health of an individual.
+        </p>
+        <h2>What is the BMI scale?</h2>
+        <p>
+          The BMI scale is a general guideline to categorize a person's weight
+          status. The categories are as follows:
+        </p>
+        <ul>
+          <li>Underweight: BMI less than 18.5</li>
+          <li>Normal weight: BMI 18.5 - 24.9</li>
+          <li>Overweight: BMI 25 - 29.9</li>
+          <li>Obesity: BMI 30 or more</li>
+        </ul>
+        <h2>What are the limitations of BMI?</h2>
+        <p>
+          BMI is a screening tool, not a diagnostic tool. It does not directly
+          measure body fat, muscle mass, bone density, or body water. It is
+          possible for a person to have a high BMI and be healthy or have a
+          normal BMI and be unhealthy. The BMI scale should be used as a general
+          guideline and not as a definitive measure of health.
+        </p>
+      </div>
+    </section>
+    <!-- bmi description end -->
 
     <!-- calculator section -->
     <section id="bmi-calculation">
@@ -145,7 +196,7 @@
             <!-- input with label -->
           </div>
 
-          <div class="slider-value" style="margin-top: 20px">
+          <div class="slider-value">
             <button
               class="btn-calculate"
               id="calculate"
@@ -180,55 +231,19 @@
         </div>
 
         <!-- detail container -->
-        <div
-          class="detail-container"
-          id="detail-container"
-          style="display: none">
+        <div class="detail-container" id="detail-container" hidden>
           <div class="detail-content">
             <h2 id="title-detail">BMI Calculation Details</h2>
             <h3 id="value-bmi"></h3>
             <div id="bmi-details"></div>
           </div>
         </div>
-
-        <!-- <div class="detail-container" id="detail-container">
-          <div class="detail-content">
-            <h2 id="title-detail">What is BMI?</h2>
-            <p>
-              Body Mass Index (BMI) is a person's weight in kilograms divided by
-              the square of height in meters. A high BMI can be an indicator of
-              high body fatness. BMI can be used to screen for weight categories
-              that may lead to health problems but it is not diagnostic of the
-              body fatness or health of an individual.
-            </p>
-            <h2>What is the BMI scale?</h2>
-            <p>
-              The BMI scale is a general guideline to categorize a person's
-              weight status. The categories are as follows:
-            </p>
-            <ul>
-              <li>Underweight: BMI less than 18.5</li>
-              <li>Normal weight: BMI 18.5 - 24.9</li>
-              <li>Overweight: BMI 25 - 29.9</li>
-              <li>Obesity: BMI 30 or more</li>
-            </ul>
-            <h2>What are the limitations of BMI?</h2>
-            <p>
-              BMI is a screening tool, not a diagnostic tool. It does not
-              directly measure body fat, muscle mass, bone density, or body
-              water. It is possible for a person to have a high BMI and be
-              healthy or have a normal BMI and be unhealthy. The BMI scale
-              should be used as a general guideline and not as a definitive
-              measure of health.
-            </p>
-          </div>
-        </div> -->
       </div>
     </section>
     <!-- calculator end section -->
 
     <!-- footer section -->
-    <section>
+    <section id="footer">
       <footer class="footer">
         <div class="footer-content">
           <p>Made with HTML, CSS, Javascript</p>

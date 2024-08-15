@@ -11,6 +11,12 @@ body {
   flex-direction: column;
 }
 
+#home {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  scroll-margin-top: 70px;
+}
+
 /* setting container */
 .container {
   width: 80%; /* Controls the width of the container */
@@ -30,6 +36,70 @@ body {
 
 .text-success {
   color: #4caf50;
+}
+
+/* navbar setting */
+#navbar {
+  background-color: #f1613c; /* Background color of the navbar */
+  padding: 10px 20px; /* Add padding for better spacing */
+  z-index: 1000; /* Ensure the navbar is above other content */
+  width: 100%; /* Ensure navbar takes full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  position: fixed;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Optional: Limit the width of the navbar content */
+  margin: 0 auto; /* Center the navbar content */
+  background-color: #f1613c; /* Match the background color */
+  width: 100%; /* Ensure the navbar content takes full width */
+}
+
+.navbar-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  max-height: 0; /* Initially hidden */
+  overflow: hidden; /* Hide overflow */
+  opacity: 0;
+}
+
+.navbar-menu.active {
+  max-height: 500px; /* Adjust based on content */
+  opacity: 1;
+}
+
+.navbar-menu li {
+  margin: 0 15px;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
 }
 
 /* setting button start */
@@ -175,10 +245,34 @@ body {
 .image-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
+  /* navbar setting */
+  .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f1613c;
+    position: absolute;
+    top: 50px; /* Adjust to match the height of the navbar */
+    left: 0;
+  }
+
+  .navbar-menu.active {
+    max-height: 500px; /* Adjust based on content */
+    opacity: 1;
+  }
+
+  .navbar-menu li {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
   .container {
     width: 90%;
   }
@@ -219,6 +313,7 @@ body {
 
   .gender {
     display: flex;
+    margin-bottom: 20px;
   }
 
   .gender-image {
@@ -363,7 +458,7 @@ body {
   }
 
   .detail-container {
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 20px;
@@ -373,6 +468,7 @@ body {
     background-color: #f9f9f9;
     margin-top: 20px;
   }
+
   .footer {
     margin-top: 50px; /* Jarak atas footer */
     background-color: #333; /* Warna latar belakang footer */
@@ -400,13 +496,3 @@ body {
     text-decoration: underline; /* Garis bawah saat hover */
   }
 }
-
-/* #landing {
-  width: 100%;
-  height: 100%;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
