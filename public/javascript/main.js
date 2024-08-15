@@ -23,12 +23,12 @@ function genderImage(gender) {
     genderImage.hidden = true;
   }
   if (gender == "male") {
-    genderImage.src = "public/image/men.png";
+    genderImage.src = "./public/image/men.png";
     genderImage.alt = "men";
     genderImage.hidden = false;
   }
   if (gender == "female") {
-    genderImage.src = "public/image/women.png";
+    genderImage.src = "./public/image/women.png";
     genderImage.alt = "men";
     genderImage.hidden = false;
   }
