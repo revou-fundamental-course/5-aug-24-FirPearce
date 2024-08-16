@@ -32,6 +32,17 @@ function menuCLick(listItem) {
   document.querySelector(href).scrollIntoView({ behavior: "smooth" });
 }
 
+// function animation scroll
+function menu() {
+  // get href
+  const href = document.querySelector(".navbar-menu a").getAttribute("href");
+  // hapus # pada href
+  const section = href.replace("#", "");
+  console.log(section);
+  // get element section
+  document.getElementById(section).scrollIntoView({ behavior: "smooth" });
+}
+
 // function select gender
 function selectGender(gender) {
   document.getElementById(gender).checked = true;

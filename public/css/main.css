@@ -9,6 +9,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 #home {
@@ -131,6 +132,7 @@ body {
 #description {
   background-color: #f09c88;
   margin-top: 150px;
+  scroll-margin-top: 50px;
 }
 
 #bmi-calculation {
@@ -496,7 +498,7 @@ body {
   .navbar-logo a {
     color: #fff;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
   }
 
@@ -512,7 +514,7 @@ body {
     width: 100%;
     background-color: #f1613c;
     position: absolute;
-    top: 50px; /* Adjust to match the height of the navbar */
+    top: 50px;
     left: 0;
   }
 
@@ -522,18 +524,18 @@ body {
     padding: 0;
     display: flex;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-    max-height: 0; /* Initially hidden */
-    overflow: hidden; /* Hide overflow */
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
   }
 
   .navbar-menu.active {
-    max-height: 500px; /* Adjust based on content */
+    max-height: 300px;
     opacity: 1;
   }
 
   .navbar-menu li {
-    margin: 15px 0;
+    margin: 5px 0;
     text-align: center;
   }
 
@@ -547,8 +549,23 @@ body {
     width: 90%;
   }
 
+  #home {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    scroll-margin-top: 70px;
+  }
+
+  #description {
+    scroll-margin-top: 50px;
+  }
+
+  .tagline img {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
   #landing {
-    flex-direction: column; /* Stack items vertically on mobile */
+    flex-direction: column;
     align-items: center;
   }
 
@@ -585,6 +602,15 @@ body {
     text-align: center;
     display: block;
     margin-top: 10px;
+  }
+
+  #bmi-calculation {
+    margin-top: 20px;
+    scroll-margin-top: 20px;
+  }
+
+  .calculation-slider {
+    flex-direction: column;
   }
 
   .calculation-slider h1 {
